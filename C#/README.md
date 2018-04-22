@@ -1,21 +1,26 @@
 # C#
 
+- [Difference between `ref` and `out` keywords](#difference-between-`ref`-and-`out`-keywords)
+- [LINQ syntax](#linq-syntax)
+- [Delegates](#delegates)
+- [`Tuple` and `ValueTuple`](#`tuple`-and-`valueTuple`)
 ## Difference between `ref` and `out` keywords
  Parameter with `ref` keyword does not require initialization. Parameter with `out` keyword does.
 
 ## LINQ syntax
  There are two types of syntax for LINQ.
- 1. Query Syntax
+ **1. Query Syntax**
  ``` csharp
  IEnumerable<Type> results = from x in MyListOfThings
                 where x.CheckSomething()
                 orderby x.SomeAttribute // or orderby x
                 select x;
 ```
-The `MyListOfThings` variable can be an `IEnumerable` or an `IQueryable`.<br>
-2. Method Syntax
+The `MyListOfThings` variable can be an `IEnumerable` or an `IQueryable`.<br/><br/>
+**2. Method Syntax**
 ``` csharp
-IEnumerable<Type> results = MyListOfThings.Where(x => x.CheckSomething()).Orderby(x => x.SomeAttribute); // or Orderby(x => x)
+IEnumerable<Type> results = MyListOfThings.Where(x => x.CheckSomething()).Orderby(x => x.SomeAttribute);
+// or Orderby(x => x)
 ```
 ## Delegates
 General syntax:
@@ -28,9 +33,9 @@ public static Type MyMethod1(parameters) { /* Method Description */ }
 MyDelMethod m1 = MyMethod1;
 m1(someParameter);
 ```
-**Note: Delegate methods are objects, so they can be passed as parameters of other methods, or assigned as properties of other objects.**
-Example:
-#### 1. As parameters of other methods
+**Note:** Delegate methods are objects, so they can be passed as parameters of other methods, or assigned as properties of other objects.<br/>
+Example:<br/>
+**1. As parameters of other methods**
 ``` csharp
 public delegate int MyMathDelegate(params int[] numbers);
 public static int MySumMethod(params int[] numbers)
@@ -48,8 +53,8 @@ Then, in the `Main` method:
 MyMathDelegate newMath = MySumMethod;
 PrintResult(1, 2, 3, 4, newMath);
 ```
-This would print in the console: `The result is 10`.
-#### 2. As properties of other objects
+This would print in the console: `The result is 10`.<br/><br/>
+**2. As properties of other objects**<br/>
 Continuing from the previous example, let us assume a class that would only contain methods (that is not static, for the purpose of this example):
 ``` cs
 public class MyMathClass
@@ -71,7 +76,7 @@ MyMathDelegate GetEverything = GetSum + GetMean + GetSD;
 Yep, that's a sum of methods! When `GetEverything` is invoked, all those delegate methods are called in that order.
 
 ## `Tuple` and `ValueTuple`
-`System.Tuple` is a struct, which means it is value type (and mutable too), whereas `System.ValueTuple` is a class, aka reference type.
+`System.Tuple` is a struct, which means it is value type (and mutable too), whereas `System.ValueTuple` is a class, aka reference type.<br/>
 **`Tuple` Example:**
 ``` cs
 public Tuple<int, int> GetSumMean(params int[] numbers)
