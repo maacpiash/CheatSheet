@@ -127,4 +127,4 @@ public static bool operator true(DataType op1, DataType op2)
     return false;
 }
 ```
-This particular example needs the overloading of `|` and `&` operators overloaded to work.
+This particular example needs `|` and `&` operators overloaded to work.
