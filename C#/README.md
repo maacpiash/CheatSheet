@@ -4,6 +4,7 @@
 - [LINQ syntax](#linq-syntax)
 - [Delegates](#delegates)
 - [`Tuple` and `ValueTuple`](#`tuple`-and-`valueTuple`)
+- [Operator overloading](#operator-overloading)
 ## Difference between `ref` and `out` keywords
  Parameter with `ref` keyword does not require initialization. Parameter with `out` keyword does.
 
@@ -106,3 +107,24 @@ In the `Main` method:
 ``` cs
 var (a, b) = GetSumMean(1, 2, 3, 4, 5); // a = 15, b = 3
 ```
+## Operator overloading
+**Overloadable operators:** +, -, !, ~, ++, --, true, false, +, -, *, /, %, &, |, ^, <<, >>, ==, !=, <, >, <=, >=
+<br/>
+
+**Method syntax:**<br/>Example shown with `+` oprator:
+``` cs
+public static DataType operator +(DataType op1, DataType op2)
+{
+    //TODO
+}
+```
+Example shown with `true` operator:
+```cs
+public static bool operator true(DataType op1, DataType op2)
+{
+    if(/*Some condition*/)
+        return true;
+    return false;
+}
+```
+This particular example needs the overloading of `|` and `&` operators overloaded to work.
