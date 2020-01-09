@@ -77,7 +77,7 @@ MyMathDelegate GetEverything = GetSum + GetMean + GetSD;
 Yep, that's a sum of methods! When `GetEverything` is invoked, all those delegate methods are called in that order.
 
 ## `Tuple` and `ValueTuple`
-`System.Tuple` is a struct, which means it is value type (and mutable too), whereas `System.ValueTuple` is a class, aka reference type.<br/>
+`System.Tuple` is a class, meaning that these are reference type variables, whereas `System.ValueTuple` is a struct, which means it is a value type variable (and mutable, too).<br/>
 **`Tuple` Example:**
 ``` cs
 public Tuple<int, int> GetSumMean(params int[] numbers)
